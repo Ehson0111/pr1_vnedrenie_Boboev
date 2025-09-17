@@ -1,0 +1,1141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище pr1_vnedrenieModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Id_tip_partnera">
+          <Key>
+            <PropertyRef Name="id_tip_partnera" />
+          </Key>
+          <Property Name="id_tip_partnera" Type="int" Nullable="false" />
+          <Property Name="tip_partnera" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Istoriya_reytinga_parnterov">
+          <Key>
+            <PropertyRef Name="id_istoriya" />
+          </Key>
+          <Property Name="id_istoriya" Type="int" Nullable="false" />
+          <Property Name="id_partnera" Type="int" />
+          <Property Name="stariy_reyting" Type="varchar" MaxLength="50" />
+          <Property Name="novy_reyming" Type="varchar" MaxLength="50" />
+          <Property Name="data_izminenia" Type="varchar" MaxLength="50" />
+          <Property Name="id_manager" Type="int" />
+        </EntityType>
+        <EntityType Name="Materiali">
+          <Key>
+            <PropertyRef Name="Id_materials" />
+          </Key>
+          <Property Name="Id_materials" Type="int" Nullable="false" />
+          <Property Name="id_tip_matreial" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="id_postavchik" Type="int" />
+          <Property Name="kolichestvo_v_upakovke" Type="int" />
+          <Property Name="edinisa_izmerenie" Type="varchar" MaxLength="50" />
+          <Property Name="opisanie" Type="varchar" MaxLength="50" />
+          <Property Name="image" Type="varchar" MaxLength="50" />
+          <Property Name="stoimost" Type="float" />
+          <Property Name="ostatok" Type="int" />
+          <Property Name="minimalmiy_dopistmiy_zakaz" Type="int" />
+        </EntityType>
+        <EntityType Name="materiali_dla_proizvodstva">
+          <Key>
+            <PropertyRef Name="id_material_dla_proizvodstvA" />
+          </Key>
+          <Property Name="id_material_dla_proizvodstvA" Type="int" Nullable="false" />
+          <Property Name="id_material" Type="int" />
+          <Property Name="id_productsi" Type="int" Nullable="false" />
+          <Property Name="kolischetvo" Type="int" />
+        </EntityType>
+        <EntityType Name="Menedcher">
+          <Key>
+            <PropertyRef Name="Id_menedcher" />
+          </Key>
+          <Property Name="Id_menedcher" Type="int" Nullable="false" />
+          <Property Name="Id_sotrdunik" Type="int" />
+        </EntityType>
+        <EntityType Name="Partneri">
+          <Key>
+            <PropertyRef Name="Id_partner" />
+          </Key>
+          <Property Name="Id_partner" Type="int" Nullable="false" />
+          <Property Name="Id_tip_partnera" Type="int" />
+          <Property Name="naimenovanie_company" Type="varchar" MaxLength="50" />
+          <Property Name="yuridichestkiy_adres" Type="varchar" MaxLength="200" />
+          <Property Name="INN" Type="varchar" MaxLength="50" />
+          <Property Name="fio_directora" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="kontaktnie_dannie" Type="varchar" MaxLength="50" />
+          <Property Name="reyting" Type="varchar" MaxLength="10" />
+          <Property Name="logotip" Type="varchar(max)" />
+          <Property Name="mesta_prodachi" Type="varchar" MaxLength="50" />
+          <Property Name="obchiy_obyom_prodaz" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Postavchiki">
+          <Key>
+            <PropertyRef Name="id_postavchic" />
+          </Key>
+          <Property Name="id_postavchic" Type="int" Nullable="false" />
+          <Property Name="id_tip_postavhiki" Type="int" />
+          <Property Name="naimenovanie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="INN" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Productsia">
+          <Key>
+            <PropertyRef Name="id_productsia" />
+          </Key>
+          <Property Name="id_productsia" Type="int" Nullable="false" />
+          <Property Name="id_tip_productsi" Type="int" Nullable="false" />
+          <Property Name="naimenovanie" Type="varchar" MaxLength="200" />
+          <Property Name="artikle" Type="varchar" MaxLength="29" />
+          <Property Name="minimaknaya_stoimost_partnera" Type="varchar" MaxLength="50" />
+          <Property Name="tip" Type="varchar" MaxLength="50" />
+          <Property Name="opisanie" Type="varchar(max)" />
+          <Property Name="izobrazhenie" Type="varchar" MaxLength="29" />
+          <Property Name="razmer_upakovki" Type="float" />
+          <Property Name="ves" Type="int" />
+          <Property Name="sertificat_kachestvo" Type="varchar(max)" />
+          <Property Name="vremya_izgotovlenie" Type="datetime" />
+          <Property Name="sebestpoimosst" Type="varchar" MaxLength="50" />
+          <Property Name="id_secha" Type="int" />
+          <Property Name="kolichestvo_chekov" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Secha">
+          <Key>
+            <PropertyRef Name="id_secha" />
+          </Key>
+          <Property Name="id_secha" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sklad">
+          <Key>
+            <PropertyRef Name="id_sklad" />
+          </Key>
+          <Property Name="id_sklad" Type="int" Nullable="false" />
+          <Property Name="id_materials" Type="int" />
+          <Property Name="id_operatsii" Type="int" />
+          <Property Name="kolischetvo" Type="int" />
+          <Property Name="data" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Skladskie_operatsi">
+          <Key>
+            <PropertyRef Name="Id_operatsi" />
+          </Key>
+          <Property Name="Id_operatsi" Type="int" Nullable="false" />
+          <Property Name="operatsia" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sotrudniki">
+          <Key>
+            <PropertyRef Name="Id_sotrudnik" />
+          </Key>
+          <Property Name="Id_sotrudnik" Type="int" Nullable="false" />
+          <Property Name="familiya" Type="varchar" MaxLength="50" />
+          <Property Name="imya" Type="varchar" MaxLength="50" />
+          <Property Name="otchestvo" Type="varchar" MaxLength="50" />
+          <Property Name="semya" Type="varchar" MaxLength="50" />
+          <Property Name="sostoyanie_zdoroview" Type="varchar" MaxLength="50" />
+          <Property Name="nomer_telefona" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Status_zayavki">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tip_materiala">
+          <Key>
+            <PropertyRef Name="Id_tip_materiala" />
+          </Key>
+          <Property Name="Id_tip_materiala" Type="int" Nullable="false" />
+          <Property Name="tip_materiala" Type="varchar" MaxLength="50" />
+          <Property Name="procent_braka" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tip_productsi">
+          <Key>
+            <PropertyRef Name="id_tip_productsi" />
+          </Key>
+          <Property Name="id_tip_productsi" Type="int" Nullable="false" />
+          <Property Name="tip_productsi" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Zayavka">
+          <Key>
+            <PropertyRef Name="Id_Zayavka" />
+          </Key>
+          <Property Name="Id_Zayavka" Type="int" Nullable="false" />
+          <Property Name="id_productsi" Type="int" />
+          <Property Name="Id_partner" Type="int" />
+          <Property Name="kolichestvi_productsi" Type="int" />
+          <Property Name="Id_menedcher" Type="int" />
+          <Property Name="data_sozdanie" Type="datetime" />
+          <Property Name="data_preadoplati" Type="datetime" />
+          <Property Name="data_vipolnenie" Type="datetime" />
+          <Property Name="id_status" Type="int" />
+        </EntityType>
+        <Association Name="FK_Istoriya_reytinga_parnterov_Partneri">
+          <End Role="Partneri" Type="Self.Partneri" Multiplicity="0..1" />
+          <End Role="Istoriya_reytinga_parnterov" Type="Self.Istoriya_reytinga_parnterov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partneri">
+              <PropertyRef Name="Id_partner" />
+            </Principal>
+            <Dependent Role="Istoriya_reytinga_parnterov">
+              <PropertyRef Name="id_partnera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_materiali_dla_proizvodstva_Materiali">
+          <End Role="Materiali" Type="Self.Materiali" Multiplicity="0..1" />
+          <End Role="materiali_dla_proizvodstva" Type="Self.materiali_dla_proizvodstva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materiali">
+              <PropertyRef Name="Id_materials" />
+            </Principal>
+            <Dependent Role="materiali_dla_proizvodstva">
+              <PropertyRef Name="id_material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_materiali_dla_proizvodstva_Productsia">
+          <End Role="Productsia" Type="Self.Productsia" Multiplicity="1" />
+          <End Role="materiali_dla_proizvodstva" Type="Self.materiali_dla_proizvodstva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productsia">
+              <PropertyRef Name="id_productsia" />
+            </Principal>
+            <Dependent Role="materiali_dla_proizvodstva">
+              <PropertyRef Name="id_productsi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materiali_Postavchiki">
+          <End Role="Postavchiki" Type="Self.Postavchiki" Multiplicity="0..1" />
+          <End Role="Materiali" Type="Self.Materiali" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postavchiki">
+              <PropertyRef Name="id_postavchic" />
+            </Principal>
+            <Dependent Role="Materiali">
+              <PropertyRef Name="id_postavchik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materiali_tip_materiala">
+          <End Role="tip_materiala" Type="Self.tip_materiala" Multiplicity="0..1" />
+          <End Role="Materiali" Type="Self.Materiali" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tip_materiala">
+              <PropertyRef Name="Id_tip_materiala" />
+            </Principal>
+            <Dependent Role="Materiali">
+              <PropertyRef Name="id_tip_matreial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menedcher_Sotrudniki">
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="0..1" />
+          <End Role="Menedcher" Type="Self.Menedcher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudniki">
+              <PropertyRef Name="Id_sotrudnik" />
+            </Principal>
+            <Dependent Role="Menedcher">
+              <PropertyRef Name="Id_sotrdunik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Partneri_Id_tip_partnera">
+          <End Role="Id_tip_partnera" Type="Self.Id_tip_partnera" Multiplicity="0..1" />
+          <End Role="Partneri" Type="Self.Partneri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Id_tip_partnera">
+              <PropertyRef Name="id_tip_partnera" />
+            </Principal>
+            <Dependent Role="Partneri">
+              <PropertyRef Name="Id_tip_partnera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productsia_Secha">
+          <End Role="Secha" Type="Self.Secha" Multiplicity="0..1" />
+          <End Role="Productsia" Type="Self.Productsia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secha">
+              <PropertyRef Name="id_secha" />
+            </Principal>
+            <Dependent Role="Productsia">
+              <PropertyRef Name="id_secha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productsia_tip_productsi">
+          <End Role="tip_productsi" Type="Self.tip_productsi" Multiplicity="1" />
+          <End Role="Productsia" Type="Self.Productsia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tip_productsi">
+              <PropertyRef Name="id_tip_productsi" />
+            </Principal>
+            <Dependent Role="Productsia">
+              <PropertyRef Name="id_tip_productsi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_Materiali">
+          <End Role="Materiali" Type="Self.Materiali" Multiplicity="0..1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materiali">
+              <PropertyRef Name="Id_materials" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_materials" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_Skladskie_operatsi">
+          <End Role="Skladskie_operatsi" Type="Self.Skladskie_operatsi" Multiplicity="0..1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skladskie_operatsi">
+              <PropertyRef Name="Id_operatsi" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_operatsii" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavka_Menedcher">
+          <End Role="Menedcher" Type="Self.Menedcher" Multiplicity="0..1" />
+          <End Role="Zayavka" Type="Self.Zayavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menedcher">
+              <PropertyRef Name="Id_menedcher" />
+            </Principal>
+            <Dependent Role="Zayavka">
+              <PropertyRef Name="Id_menedcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavka_Partneri">
+          <End Role="Partneri" Type="Self.Partneri" Multiplicity="0..1" />
+          <End Role="Zayavka" Type="Self.Zayavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partneri">
+              <PropertyRef Name="Id_partner" />
+            </Principal>
+            <Dependent Role="Zayavka">
+              <PropertyRef Name="Id_partner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavka_Productsia">
+          <End Role="Productsia" Type="Self.Productsia" Multiplicity="0..1" />
+          <End Role="Zayavka" Type="Self.Zayavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productsia">
+              <PropertyRef Name="id_productsia" />
+            </Principal>
+            <Dependent Role="Zayavka">
+              <PropertyRef Name="id_productsi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavka_Status_zayavki">
+          <End Role="Status_zayavki" Type="Self.Status_zayavki" Multiplicity="0..1" />
+          <End Role="Zayavka" Type="Self.Zayavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_zayavki">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="Zayavka">
+              <PropertyRef Name="id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище pr1_vnedrenieModelContainer">
+          <EntitySet Name="Id_tip_partnera" EntityType="Self.Id_tip_partnera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Istoriya_reytinga_parnterov" EntityType="Self.Istoriya_reytinga_parnterov" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materiali" EntityType="Self.Materiali" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="materiali_dla_proizvodstva" EntityType="Self.materiali_dla_proizvodstva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menedcher" EntityType="Self.Menedcher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partneri" EntityType="Self.Partneri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Postavchiki" EntityType="Self.Postavchiki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productsia" EntityType="Self.Productsia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Secha" EntityType="Self.Secha" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skladskie_operatsi" EntityType="Self.Skladskie_operatsi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sotrudniki" EntityType="Self.Sotrudniki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status_zayavki" EntityType="Self.Status_zayavki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tip_materiala" EntityType="Self.tip_materiala" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tip_productsi" EntityType="Self.tip_productsi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zayavka" EntityType="Self.Zayavka" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Istoriya_reytinga_parnterov_Partneri" Association="Self.FK_Istoriya_reytinga_parnterov_Partneri">
+            <End Role="Partneri" EntitySet="Partneri" />
+            <End Role="Istoriya_reytinga_parnterov" EntitySet="Istoriya_reytinga_parnterov" />
+          </AssociationSet>
+          <AssociationSet Name="FK_materiali_dla_proizvodstva_Materiali" Association="Self.FK_materiali_dla_proizvodstva_Materiali">
+            <End Role="Materiali" EntitySet="Materiali" />
+            <End Role="materiali_dla_proizvodstva" EntitySet="materiali_dla_proizvodstva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_materiali_dla_proizvodstva_Productsia" Association="Self.FK_materiali_dla_proizvodstva_Productsia">
+            <End Role="Productsia" EntitySet="Productsia" />
+            <End Role="materiali_dla_proizvodstva" EntitySet="materiali_dla_proizvodstva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materiali_Postavchiki" Association="Self.FK_Materiali_Postavchiki">
+            <End Role="Postavchiki" EntitySet="Postavchiki" />
+            <End Role="Materiali" EntitySet="Materiali" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materiali_tip_materiala" Association="Self.FK_Materiali_tip_materiala">
+            <End Role="tip_materiala" EntitySet="tip_materiala" />
+            <End Role="Materiali" EntitySet="Materiali" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menedcher_Sotrudniki" Association="Self.FK_Menedcher_Sotrudniki">
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+            <End Role="Menedcher" EntitySet="Menedcher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Partneri_Id_tip_partnera" Association="Self.FK_Partneri_Id_tip_partnera">
+            <End Role="Id_tip_partnera" EntitySet="Id_tip_partnera" />
+            <End Role="Partneri" EntitySet="Partneri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productsia_Secha" Association="Self.FK_Productsia_Secha">
+            <End Role="Secha" EntitySet="Secha" />
+            <End Role="Productsia" EntitySet="Productsia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productsia_tip_productsi" Association="Self.FK_Productsia_tip_productsi">
+            <End Role="tip_productsi" EntitySet="tip_productsi" />
+            <End Role="Productsia" EntitySet="Productsia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sklad_Materiali" Association="Self.FK_Sklad_Materiali">
+            <End Role="Materiali" EntitySet="Materiali" />
+            <End Role="Sklad" EntitySet="Sklad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sklad_Skladskie_operatsi" Association="Self.FK_Sklad_Skladskie_operatsi">
+            <End Role="Skladskie_operatsi" EntitySet="Skladskie_operatsi" />
+            <End Role="Sklad" EntitySet="Sklad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavka_Menedcher" Association="Self.FK_Zayavka_Menedcher">
+            <End Role="Menedcher" EntitySet="Menedcher" />
+            <End Role="Zayavka" EntitySet="Zayavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavka_Partneri" Association="Self.FK_Zayavka_Partneri">
+            <End Role="Partneri" EntitySet="Partneri" />
+            <End Role="Zayavka" EntitySet="Zayavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavka_Productsia" Association="Self.FK_Zayavka_Productsia">
+            <End Role="Productsia" EntitySet="Productsia" />
+            <End Role="Zayavka" EntitySet="Zayavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavka_Status_zayavki" Association="Self.FK_Zayavka_Status_zayavki">
+            <End Role="Status_zayavki" EntitySet="Status_zayavki" />
+            <End Role="Zayavka" EntitySet="Zayavka" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pr1_vnedrenieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Id_tip_partnera">
+          <Key>
+            <PropertyRef Name="id_tip_partnera1" />
+          </Key>
+          <Property Name="id_tip_partnera1" Type="Int32" Nullable="false" />
+          <Property Name="tip_partnera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Partneri" Relationship="Self.FK_Partneri_Id_tip_partnera" FromRole="Id_tip_partnera" ToRole="Partneri" />
+        </EntityType>
+        <EntityType Name="Istoriya_reytinga_parnterov">
+          <Key>
+            <PropertyRef Name="id_istoriya" />
+          </Key>
+          <Property Name="id_istoriya" Type="Int32" Nullable="false" />
+          <Property Name="id_partnera" Type="Int32" />
+          <Property Name="stariy_reyting" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="novy_reyming" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="data_izminenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_manager" Type="Int32" />
+          <NavigationProperty Name="Partneri" Relationship="Self.FK_Istoriya_reytinga_parnterov_Partneri" FromRole="Istoriya_reytinga_parnterov" ToRole="Partneri" />
+        </EntityType>
+        <EntityType Name="Materiali">
+          <Key>
+            <PropertyRef Name="Id_materials" />
+          </Key>
+          <Property Name="Id_materials" Type="Int32" Nullable="false" />
+          <Property Name="id_tip_matreial" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_postavchik" Type="Int32" />
+          <Property Name="kolichestvo_v_upakovke" Type="Int32" />
+          <Property Name="edinisa_izmerenie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="opisanie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stoimost" Type="Double" />
+          <Property Name="ostatok" Type="Int32" />
+          <Property Name="minimalmiy_dopistmiy_zakaz" Type="Int32" />
+          <NavigationProperty Name="materiali_dla_proizvodstva" Relationship="Self.FK_materiali_dla_proizvodstva_Materiali" FromRole="Materiali" ToRole="materiali_dla_proizvodstva" />
+          <NavigationProperty Name="Postavchiki" Relationship="Self.FK_Materiali_Postavchiki" FromRole="Materiali" ToRole="Postavchiki" />
+          <NavigationProperty Name="tip_materiala" Relationship="Self.FK_Materiali_tip_materiala" FromRole="Materiali" ToRole="tip_materiala" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_Materiali" FromRole="Materiali" ToRole="Sklad" />
+        </EntityType>
+        <EntityType Name="materiali_dla_proizvodstva">
+          <Key>
+            <PropertyRef Name="id_material_dla_proizvodstvA" />
+          </Key>
+          <Property Name="id_material_dla_proizvodstvA" Type="Int32" Nullable="false" />
+          <Property Name="id_material" Type="Int32" />
+          <Property Name="id_productsi" Type="Int32" Nullable="false" />
+          <Property Name="kolischetvo" Type="Int32" />
+          <NavigationProperty Name="Materiali" Relationship="Self.FK_materiali_dla_proizvodstva_Materiali" FromRole="materiali_dla_proizvodstva" ToRole="Materiali" />
+          <NavigationProperty Name="Productsia" Relationship="Self.FK_materiali_dla_proizvodstva_Productsia" FromRole="materiali_dla_proizvodstva" ToRole="Productsia" />
+        </EntityType>
+        <EntityType Name="Menedcher">
+          <Key>
+            <PropertyRef Name="Id_menedcher" />
+          </Key>
+          <Property Name="Id_menedcher" Type="Int32" Nullable="false" />
+          <Property Name="Id_sotrdunik" Type="Int32" />
+          <NavigationProperty Name="Sotrudniki" Relationship="Self.FK_Menedcher_Sotrudniki" FromRole="Menedcher" ToRole="Sotrudniki" />
+          <NavigationProperty Name="Zayavka" Relationship="Self.FK_Zayavka_Menedcher" FromRole="Menedcher" ToRole="Zayavka" />
+        </EntityType>
+        <EntityType Name="Partneri">
+          <Key>
+            <PropertyRef Name="Id_partner" />
+          </Key>
+          <Property Name="Id_partner" Type="Int32" Nullable="false" />
+          <Property Name="Id_tip_partnera" Type="Int32" />
+          <Property Name="naimenovanie_company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yuridichestkiy_adres" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="INN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fio_directora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kontaktnie_dannie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reyting" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="logotip" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="mesta_prodachi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="obchiy_obyom_prodaz" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Id_tip_partnera1" Relationship="Self.FK_Partneri_Id_tip_partnera" FromRole="Partneri" ToRole="Id_tip_partnera" />
+          <NavigationProperty Name="Istoriya_reytinga_parnterov" Relationship="Self.FK_Istoriya_reytinga_parnterov_Partneri" FromRole="Partneri" ToRole="Istoriya_reytinga_parnterov" />
+          <NavigationProperty Name="Zayavka" Relationship="Self.FK_Zayavka_Partneri" FromRole="Partneri" ToRole="Zayavka" />
+        </EntityType>
+        <EntityType Name="Postavchiki">
+          <Key>
+            <PropertyRef Name="id_postavchic" />
+          </Key>
+          <Property Name="id_postavchic" Type="Int32" Nullable="false" />
+          <Property Name="id_tip_postavhiki" Type="Int32" />
+          <Property Name="naimenovanie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Materiali" Relationship="Self.FK_Materiali_Postavchiki" FromRole="Postavchiki" ToRole="Materiali" />
+        </EntityType>
+        <EntityType Name="Productsia">
+          <Key>
+            <PropertyRef Name="id_productsia" />
+          </Key>
+          <Property Name="id_productsia" Type="Int32" Nullable="false" />
+          <Property Name="id_tip_productsi" Type="Int32" Nullable="false" />
+          <Property Name="naimenovanie" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="artikle" Type="String" MaxLength="29" FixedLength="false" Unicode="false" />
+          <Property Name="minimaknaya_stoimost_partnera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="opisanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="izobrazhenie" Type="String" MaxLength="29" FixedLength="false" Unicode="false" />
+          <Property Name="razmer_upakovki" Type="Double" />
+          <Property Name="ves" Type="Int32" />
+          <Property Name="sertificat_kachestvo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="vremya_izgotovlenie" Type="DateTime" Precision="3" />
+          <Property Name="sebestpoimosst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_secha" Type="Int32" />
+          <Property Name="kolichestvo_chekov" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="materiali_dla_proizvodstva" Relationship="Self.FK_materiali_dla_proizvodstva_Productsia" FromRole="Productsia" ToRole="materiali_dla_proizvodstva" />
+          <NavigationProperty Name="Secha" Relationship="Self.FK_Productsia_Secha" FromRole="Productsia" ToRole="Secha" />
+          <NavigationProperty Name="tip_productsi" Relationship="Self.FK_Productsia_tip_productsi" FromRole="Productsia" ToRole="tip_productsi" />
+          <NavigationProperty Name="Zayavka" Relationship="Self.FK_Zayavka_Productsia" FromRole="Productsia" ToRole="Zayavka" />
+        </EntityType>
+        <EntityType Name="Secha">
+          <Key>
+            <PropertyRef Name="id_secha" />
+          </Key>
+          <Property Name="id_secha" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Productsia" Relationship="Self.FK_Productsia_Secha" FromRole="Secha" ToRole="Productsia" />
+        </EntityType>
+        <EntityType Name="Sklad">
+          <Key>
+            <PropertyRef Name="id_sklad" />
+          </Key>
+          <Property Name="id_sklad" Type="Int32" Nullable="false" />
+          <Property Name="id_materials" Type="Int32" />
+          <Property Name="id_operatsii" Type="Int32" />
+          <Property Name="kolischetvo" Type="Int32" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Materiali" Relationship="Self.FK_Sklad_Materiali" FromRole="Sklad" ToRole="Materiali" />
+          <NavigationProperty Name="Skladskie_operatsi" Relationship="Self.FK_Sklad_Skladskie_operatsi" FromRole="Sklad" ToRole="Skladskie_operatsi" />
+        </EntityType>
+        <EntityType Name="Skladskie_operatsi">
+          <Key>
+            <PropertyRef Name="Id_operatsi" />
+          </Key>
+          <Property Name="Id_operatsi" Type="Int32" Nullable="false" />
+          <Property Name="operatsia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_Skladskie_operatsi" FromRole="Skladskie_operatsi" ToRole="Sklad" />
+        </EntityType>
+        <EntityType Name="Sotrudniki">
+          <Key>
+            <PropertyRef Name="Id_sotrudnik" />
+          </Key>
+          <Property Name="Id_sotrudnik" Type="Int32" Nullable="false" />
+          <Property Name="familiya" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="imya" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="otchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="semya" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sostoyanie_zdoroview" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomer_telefona" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Menedcher" Relationship="Self.FK_Menedcher_Sotrudniki" FromRole="Sotrudniki" ToRole="Menedcher" />
+        </EntityType>
+        <EntityType Name="Status_zayavki">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Zayavka" Relationship="Self.FK_Zayavka_Status_zayavki" FromRole="Status_zayavki" ToRole="Zayavka" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tip_materiala">
+          <Key>
+            <PropertyRef Name="Id_tip_materiala" />
+          </Key>
+          <Property Name="Id_tip_materiala" Type="Int32" Nullable="false" />
+          <Property Name="tip_materiala1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="procent_braka" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Materiali" Relationship="Self.FK_Materiali_tip_materiala" FromRole="tip_materiala" ToRole="Materiali" />
+        </EntityType>
+        <EntityType Name="tip_productsi">
+          <Key>
+            <PropertyRef Name="id_tip_productsi" />
+          </Key>
+          <Property Name="id_tip_productsi" Type="Int32" Nullable="false" />
+          <Property Name="tip_productsi1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Productsia" Relationship="Self.FK_Productsia_tip_productsi" FromRole="tip_productsi" ToRole="Productsia" />
+        </EntityType>
+        <EntityType Name="Zayavka">
+          <Key>
+            <PropertyRef Name="Id_Zayavka" />
+          </Key>
+          <Property Name="Id_Zayavka" Type="Int32" Nullable="false" />
+          <Property Name="id_productsi" Type="Int32" />
+          <Property Name="Id_partner" Type="Int32" />
+          <Property Name="kolichestvi_productsi" Type="Int32" />
+          <Property Name="Id_menedcher" Type="Int32" />
+          <Property Name="data_sozdanie" Type="DateTime" Precision="3" />
+          <Property Name="data_preadoplati" Type="DateTime" Precision="3" />
+          <Property Name="data_vipolnenie" Type="DateTime" Precision="3" />
+          <Property Name="id_status" Type="Int32" />
+          <NavigationProperty Name="Menedcher" Relationship="Self.FK_Zayavka_Menedcher" FromRole="Zayavka" ToRole="Menedcher" />
+          <NavigationProperty Name="Partneri" Relationship="Self.FK_Zayavka_Partneri" FromRole="Zayavka" ToRole="Partneri" />
+          <NavigationProperty Name="Productsia" Relationship="Self.FK_Zayavka_Productsia" FromRole="Zayavka" ToRole="Productsia" />
+          <NavigationProperty Name="Status_zayavki" Relationship="Self.FK_Zayavka_Status_zayavki" FromRole="Zayavka" ToRole="Status_zayavki" />
+        </EntityType>
+        <Association Name="FK_Partneri_Id_tip_partnera">
+          <End Role="Id_tip_partnera" Type="Self.Id_tip_partnera" Multiplicity="0..1" />
+          <End Role="Partneri" Type="Self.Partneri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Id_tip_partnera">
+              <PropertyRef Name="id_tip_partnera1" />
+            </Principal>
+            <Dependent Role="Partneri">
+              <PropertyRef Name="Id_tip_partnera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Istoriya_reytinga_parnterov_Partneri">
+          <End Role="Partneri" Type="Self.Partneri" Multiplicity="0..1" />
+          <End Role="Istoriya_reytinga_parnterov" Type="Self.Istoriya_reytinga_parnterov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partneri">
+              <PropertyRef Name="Id_partner" />
+            </Principal>
+            <Dependent Role="Istoriya_reytinga_parnterov">
+              <PropertyRef Name="id_partnera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_materiali_dla_proizvodstva_Materiali">
+          <End Role="Materiali" Type="Self.Materiali" Multiplicity="0..1" />
+          <End Role="materiali_dla_proizvodstva" Type="Self.materiali_dla_proizvodstva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materiali">
+              <PropertyRef Name="Id_materials" />
+            </Principal>
+            <Dependent Role="materiali_dla_proizvodstva">
+              <PropertyRef Name="id_material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materiali_Postavchiki">
+          <End Role="Postavchiki" Type="Self.Postavchiki" Multiplicity="0..1" />
+          <End Role="Materiali" Type="Self.Materiali" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postavchiki">
+              <PropertyRef Name="id_postavchic" />
+            </Principal>
+            <Dependent Role="Materiali">
+              <PropertyRef Name="id_postavchik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materiali_tip_materiala">
+          <End Role="tip_materiala" Type="Self.tip_materiala" Multiplicity="0..1" />
+          <End Role="Materiali" Type="Self.Materiali" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tip_materiala">
+              <PropertyRef Name="Id_tip_materiala" />
+            </Principal>
+            <Dependent Role="Materiali">
+              <PropertyRef Name="id_tip_matreial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_Materiali">
+          <End Role="Materiali" Type="Self.Materiali" Multiplicity="0..1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materiali">
+              <PropertyRef Name="Id_materials" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_materials" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_materiali_dla_proizvodstva_Productsia">
+          <End Role="Productsia" Type="Self.Productsia" Multiplicity="1" />
+          <End Role="materiali_dla_proizvodstva" Type="Self.materiali_dla_proizvodstva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productsia">
+              <PropertyRef Name="id_productsia" />
+            </Principal>
+            <Dependent Role="materiali_dla_proizvodstva">
+              <PropertyRef Name="id_productsi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menedcher_Sotrudniki">
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="0..1" />
+          <End Role="Menedcher" Type="Self.Menedcher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudniki">
+              <PropertyRef Name="Id_sotrudnik" />
+            </Principal>
+            <Dependent Role="Menedcher">
+              <PropertyRef Name="Id_sotrdunik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavka_Menedcher">
+          <End Role="Menedcher" Type="Self.Menedcher" Multiplicity="0..1" />
+          <End Role="Zayavka" Type="Self.Zayavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menedcher">
+              <PropertyRef Name="Id_menedcher" />
+            </Principal>
+            <Dependent Role="Zayavka">
+              <PropertyRef Name="Id_menedcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavka_Partneri">
+          <End Role="Partneri" Type="Self.Partneri" Multiplicity="0..1" />
+          <End Role="Zayavka" Type="Self.Zayavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partneri">
+              <PropertyRef Name="Id_partner" />
+            </Principal>
+            <Dependent Role="Zayavka">
+              <PropertyRef Name="Id_partner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productsia_Secha">
+          <End Role="Secha" Type="Self.Secha" Multiplicity="0..1" />
+          <End Role="Productsia" Type="Self.Productsia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secha">
+              <PropertyRef Name="id_secha" />
+            </Principal>
+            <Dependent Role="Productsia">
+              <PropertyRef Name="id_secha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productsia_tip_productsi">
+          <End Role="tip_productsi" Type="Self.tip_productsi" Multiplicity="1" />
+          <End Role="Productsia" Type="Self.Productsia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tip_productsi">
+              <PropertyRef Name="id_tip_productsi" />
+            </Principal>
+            <Dependent Role="Productsia">
+              <PropertyRef Name="id_tip_productsi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavka_Productsia">
+          <End Role="Productsia" Type="Self.Productsia" Multiplicity="0..1" />
+          <End Role="Zayavka" Type="Self.Zayavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productsia">
+              <PropertyRef Name="id_productsia" />
+            </Principal>
+            <Dependent Role="Zayavka">
+              <PropertyRef Name="id_productsi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sklad_Skladskie_operatsi">
+          <End Role="Skladskie_operatsi" Type="Self.Skladskie_operatsi" Multiplicity="0..1" />
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skladskie_operatsi">
+              <PropertyRef Name="Id_operatsi" />
+            </Principal>
+            <Dependent Role="Sklad">
+              <PropertyRef Name="id_operatsii" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zayavka_Status_zayavki">
+          <End Role="Status_zayavki" Type="Self.Status_zayavki" Multiplicity="0..1" />
+          <End Role="Zayavka" Type="Self.Zayavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_zayavki">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="Zayavka">
+              <PropertyRef Name="id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="pr1_vnedrenieEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Id_tip_partnera" EntityType="Self.Id_tip_partnera" />
+          <EntitySet Name="Istoriya_reytinga_parnterov" EntityType="Self.Istoriya_reytinga_parnterov" />
+          <EntitySet Name="Materiali" EntityType="Self.Materiali" />
+          <EntitySet Name="materiali_dla_proizvodstva" EntityType="Self.materiali_dla_proizvodstva" />
+          <EntitySet Name="Menedcher" EntityType="Self.Menedcher" />
+          <EntitySet Name="Partneri" EntityType="Self.Partneri" />
+          <EntitySet Name="Postavchiki" EntityType="Self.Postavchiki" />
+          <EntitySet Name="Productsia" EntityType="Self.Productsia" />
+          <EntitySet Name="Secha" EntityType="Self.Secha" />
+          <EntitySet Name="Sklad" EntityType="Self.Sklad" />
+          <EntitySet Name="Skladskie_operatsi" EntityType="Self.Skladskie_operatsi" />
+          <EntitySet Name="Sotrudniki" EntityType="Self.Sotrudniki" />
+          <EntitySet Name="Status_zayavki" EntityType="Self.Status_zayavki" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tip_materiala" EntityType="Self.tip_materiala" />
+          <EntitySet Name="tip_productsi" EntityType="Self.tip_productsi" />
+          <EntitySet Name="Zayavka" EntityType="Self.Zayavka" />
+          <AssociationSet Name="FK_Partneri_Id_tip_partnera" Association="Self.FK_Partneri_Id_tip_partnera">
+            <End Role="Id_tip_partnera" EntitySet="Id_tip_partnera" />
+            <End Role="Partneri" EntitySet="Partneri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Istoriya_reytinga_parnterov_Partneri" Association="Self.FK_Istoriya_reytinga_parnterov_Partneri">
+            <End Role="Partneri" EntitySet="Partneri" />
+            <End Role="Istoriya_reytinga_parnterov" EntitySet="Istoriya_reytinga_parnterov" />
+          </AssociationSet>
+          <AssociationSet Name="FK_materiali_dla_proizvodstva_Materiali" Association="Self.FK_materiali_dla_proizvodstva_Materiali">
+            <End Role="Materiali" EntitySet="Materiali" />
+            <End Role="materiali_dla_proizvodstva" EntitySet="materiali_dla_proizvodstva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materiali_Postavchiki" Association="Self.FK_Materiali_Postavchiki">
+            <End Role="Postavchiki" EntitySet="Postavchiki" />
+            <End Role="Materiali" EntitySet="Materiali" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materiali_tip_materiala" Association="Self.FK_Materiali_tip_materiala">
+            <End Role="tip_materiala" EntitySet="tip_materiala" />
+            <End Role="Materiali" EntitySet="Materiali" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sklad_Materiali" Association="Self.FK_Sklad_Materiali">
+            <End Role="Materiali" EntitySet="Materiali" />
+            <End Role="Sklad" EntitySet="Sklad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_materiali_dla_proizvodstva_Productsia" Association="Self.FK_materiali_dla_proizvodstva_Productsia">
+            <End Role="Productsia" EntitySet="Productsia" />
+            <End Role="materiali_dla_proizvodstva" EntitySet="materiali_dla_proizvodstva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menedcher_Sotrudniki" Association="Self.FK_Menedcher_Sotrudniki">
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+            <End Role="Menedcher" EntitySet="Menedcher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavka_Menedcher" Association="Self.FK_Zayavka_Menedcher">
+            <End Role="Menedcher" EntitySet="Menedcher" />
+            <End Role="Zayavka" EntitySet="Zayavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavka_Partneri" Association="Self.FK_Zayavka_Partneri">
+            <End Role="Partneri" EntitySet="Partneri" />
+            <End Role="Zayavka" EntitySet="Zayavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productsia_Secha" Association="Self.FK_Productsia_Secha">
+            <End Role="Secha" EntitySet="Secha" />
+            <End Role="Productsia" EntitySet="Productsia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productsia_tip_productsi" Association="Self.FK_Productsia_tip_productsi">
+            <End Role="tip_productsi" EntitySet="tip_productsi" />
+            <End Role="Productsia" EntitySet="Productsia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavka_Productsia" Association="Self.FK_Zayavka_Productsia">
+            <End Role="Productsia" EntitySet="Productsia" />
+            <End Role="Zayavka" EntitySet="Zayavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sklad_Skladskie_operatsi" Association="Self.FK_Sklad_Skladskie_operatsi">
+            <End Role="Skladskie_operatsi" EntitySet="Skladskie_operatsi" />
+            <End Role="Sklad" EntitySet="Sklad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zayavka_Status_zayavki" Association="Self.FK_Zayavka_Status_zayavki">
+            <End Role="Status_zayavki" EntitySet="Status_zayavki" />
+            <End Role="Zayavka" EntitySet="Zayavka" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище pr1_vnedrenieModelContainer" CdmEntityContainer="pr1_vnedrenieEntities">
+          <EntitySetMapping Name="Id_tip_partnera">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Id_tip_partnera">
+              <MappingFragment StoreEntitySet="Id_tip_partnera">
+                <ScalarProperty Name="id_tip_partnera1" ColumnName="id_tip_partnera" />
+                <ScalarProperty Name="tip_partnera" ColumnName="tip_partnera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Istoriya_reytinga_parnterov">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Istoriya_reytinga_parnterov">
+              <MappingFragment StoreEntitySet="Istoriya_reytinga_parnterov">
+                <ScalarProperty Name="id_istoriya" ColumnName="id_istoriya" />
+                <ScalarProperty Name="id_partnera" ColumnName="id_partnera" />
+                <ScalarProperty Name="stariy_reyting" ColumnName="stariy_reyting" />
+                <ScalarProperty Name="novy_reyming" ColumnName="novy_reyming" />
+                <ScalarProperty Name="data_izminenia" ColumnName="data_izminenia" />
+                <ScalarProperty Name="id_manager" ColumnName="id_manager" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materiali">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Materiali">
+              <MappingFragment StoreEntitySet="Materiali">
+                <ScalarProperty Name="Id_materials" ColumnName="Id_materials" />
+                <ScalarProperty Name="id_tip_matreial" ColumnName="id_tip_matreial" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_postavchik" ColumnName="id_postavchik" />
+                <ScalarProperty Name="kolichestvo_v_upakovke" ColumnName="kolichestvo_v_upakovke" />
+                <ScalarProperty Name="edinisa_izmerenie" ColumnName="edinisa_izmerenie" />
+                <ScalarProperty Name="opisanie" ColumnName="opisanie" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="stoimost" ColumnName="stoimost" />
+                <ScalarProperty Name="ostatok" ColumnName="ostatok" />
+                <ScalarProperty Name="minimalmiy_dopistmiy_zakaz" ColumnName="minimalmiy_dopistmiy_zakaz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="materiali_dla_proizvodstva">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.materiali_dla_proizvodstva">
+              <MappingFragment StoreEntitySet="materiali_dla_proizvodstva">
+                <ScalarProperty Name="id_material_dla_proizvodstvA" ColumnName="id_material_dla_proizvodstvA" />
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+                <ScalarProperty Name="id_productsi" ColumnName="id_productsi" />
+                <ScalarProperty Name="kolischetvo" ColumnName="kolischetvo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menedcher">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Menedcher">
+              <MappingFragment StoreEntitySet="Menedcher">
+                <ScalarProperty Name="Id_menedcher" ColumnName="Id_menedcher" />
+                <ScalarProperty Name="Id_sotrdunik" ColumnName="Id_sotrdunik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partneri">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Partneri">
+              <MappingFragment StoreEntitySet="Partneri">
+                <ScalarProperty Name="Id_partner" ColumnName="Id_partner" />
+                <ScalarProperty Name="Id_tip_partnera" ColumnName="Id_tip_partnera" />
+                <ScalarProperty Name="naimenovanie_company" ColumnName="naimenovanie_company" />
+                <ScalarProperty Name="yuridichestkiy_adres" ColumnName="yuridichestkiy_adres" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="fio_directora" ColumnName="fio_directora" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="kontaktnie_dannie" ColumnName="kontaktnie_dannie" />
+                <ScalarProperty Name="reyting" ColumnName="reyting" />
+                <ScalarProperty Name="logotip" ColumnName="logotip" />
+                <ScalarProperty Name="mesta_prodachi" ColumnName="mesta_prodachi" />
+                <ScalarProperty Name="obchiy_obyom_prodaz" ColumnName="obchiy_obyom_prodaz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Postavchiki">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Postavchiki">
+              <MappingFragment StoreEntitySet="Postavchiki">
+                <ScalarProperty Name="id_postavchic" ColumnName="id_postavchic" />
+                <ScalarProperty Name="id_tip_postavhiki" ColumnName="id_tip_postavhiki" />
+                <ScalarProperty Name="naimenovanie" ColumnName="naimenovanie" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productsia">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Productsia">
+              <MappingFragment StoreEntitySet="Productsia">
+                <ScalarProperty Name="id_productsia" ColumnName="id_productsia" />
+                <ScalarProperty Name="id_tip_productsi" ColumnName="id_tip_productsi" />
+                <ScalarProperty Name="naimenovanie" ColumnName="naimenovanie" />
+                <ScalarProperty Name="artikle" ColumnName="artikle" />
+                <ScalarProperty Name="minimaknaya_stoimost_partnera" ColumnName="minimaknaya_stoimost_partnera" />
+                <ScalarProperty Name="tip" ColumnName="tip" />
+                <ScalarProperty Name="opisanie" ColumnName="opisanie" />
+                <ScalarProperty Name="izobrazhenie" ColumnName="izobrazhenie" />
+                <ScalarProperty Name="razmer_upakovki" ColumnName="razmer_upakovki" />
+                <ScalarProperty Name="ves" ColumnName="ves" />
+                <ScalarProperty Name="sertificat_kachestvo" ColumnName="sertificat_kachestvo" />
+                <ScalarProperty Name="vremya_izgotovlenie" ColumnName="vremya_izgotovlenie" />
+                <ScalarProperty Name="sebestpoimosst" ColumnName="sebestpoimosst" />
+                <ScalarProperty Name="id_secha" ColumnName="id_secha" />
+                <ScalarProperty Name="kolichestvo_chekov" ColumnName="kolichestvo_chekov" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secha">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Secha">
+              <MappingFragment StoreEntitySet="Secha">
+                <ScalarProperty Name="id_secha" ColumnName="id_secha" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sklad">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Sklad">
+              <MappingFragment StoreEntitySet="Sklad">
+                <ScalarProperty Name="id_sklad" ColumnName="id_sklad" />
+                <ScalarProperty Name="id_materials" ColumnName="id_materials" />
+                <ScalarProperty Name="id_operatsii" ColumnName="id_operatsii" />
+                <ScalarProperty Name="kolischetvo" ColumnName="kolischetvo" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skladskie_operatsi">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Skladskie_operatsi">
+              <MappingFragment StoreEntitySet="Skladskie_operatsi">
+                <ScalarProperty Name="Id_operatsi" ColumnName="Id_operatsi" />
+                <ScalarProperty Name="operatsia" ColumnName="operatsia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sotrudniki">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Sotrudniki">
+              <MappingFragment StoreEntitySet="Sotrudniki">
+                <ScalarProperty Name="Id_sotrudnik" ColumnName="Id_sotrudnik" />
+                <ScalarProperty Name="familiya" ColumnName="familiya" />
+                <ScalarProperty Name="imya" ColumnName="imya" />
+                <ScalarProperty Name="otchestvo" ColumnName="otchestvo" />
+                <ScalarProperty Name="semya" ColumnName="semya" />
+                <ScalarProperty Name="sostoyanie_zdoroview" ColumnName="sostoyanie_zdoroview" />
+                <ScalarProperty Name="nomer_telefona" ColumnName="nomer_telefona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status_zayavki">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Status_zayavki">
+              <MappingFragment StoreEntitySet="Status_zayavki">
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tip_materiala">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.tip_materiala">
+              <MappingFragment StoreEntitySet="tip_materiala">
+                <ScalarProperty Name="Id_tip_materiala" ColumnName="Id_tip_materiala" />
+                <ScalarProperty Name="tip_materiala1" ColumnName="tip_materiala" />
+                <ScalarProperty Name="procent_braka" ColumnName="procent_braka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tip_productsi">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.tip_productsi">
+              <MappingFragment StoreEntitySet="tip_productsi">
+                <ScalarProperty Name="id_tip_productsi" ColumnName="id_tip_productsi" />
+                <ScalarProperty Name="tip_productsi1" ColumnName="tip_productsi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zayavka">
+            <EntityTypeMapping TypeName="pr1_vnedrenieModel.Zayavka">
+              <MappingFragment StoreEntitySet="Zayavka">
+                <ScalarProperty Name="Id_Zayavka" ColumnName="Id_Zayavka" />
+                <ScalarProperty Name="id_productsi" ColumnName="id_productsi" />
+                <ScalarProperty Name="Id_partner" ColumnName="Id_partner" />
+                <ScalarProperty Name="kolichestvi_productsi" ColumnName="kolichestvi_productsi" />
+                <ScalarProperty Name="Id_menedcher" ColumnName="Id_menedcher" />
+                <ScalarProperty Name="data_sozdanie" ColumnName="data_sozdanie" />
+                <ScalarProperty Name="data_preadoplati" ColumnName="data_preadoplati" />
+                <ScalarProperty Name="data_vipolnenie" ColumnName="data_vipolnenie" />
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

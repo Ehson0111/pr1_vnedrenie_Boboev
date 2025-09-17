@@ -1,0 +1,103 @@
+﻿<Page x:Name="isv" x:Class="pr1_vnedrenit.Pages.PartnersApplications"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:pr1_vnedrenit.Pages"
+      mc:Ignorable="d" 
+      Background="White"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PartnersApplications" IsVisibleChanged="isv_IsVisibleChanged">
+    <Page.Resources>
+        <DataTemplate x:Key="ListBoxItemTemplate1">
+            <Grid/>
+        </DataTemplate>
+        <DataTemplate x:Key="ListBoxItemTemplate2">
+            <Grid/>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0" Margin="5" >
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="1*"/>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="Список заявок партнеров" 
+                   FontSize="16" FontWeight="Bold" 
+                   Margin="10" HorizontalAlignment="Center"/>
+
+            <!--<StackPanel Grid.Column="0" Orientation="Vertical">
+                <TextBlock Text="Поиск"/>
+                <TextBox x:Name="txtSearch" Margin="5"  TextChanged="txtSearch_TextChanged"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <TextBlock Text="Поиск"/>
+                <ComboBox  Margin="5">
+                    <ComboBoxItem Tag="0"  Content="Без сортировки"/>
+                    <ComboBoxItem   Tag="1" Content="По возрастанию"/>
+                    <ComboBoxItem Tag="2"  Content=" По убыванию "/>
+                </ComboBox>
+
+
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Vertical">
+                <TextBlock Text="Поиск"/>
+            </StackPanel>-->
+
+        </Grid>
+        <ListBox ItemsSource="{Binding Zayavki}" Grid.Row="1" x:Name="ZayavkiList" BorderBrush="Gray" SelectionChanged="ZayavkiList_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="5" Margin="5" Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <!-- Логотип (если есть) -->
+
+                            <!-- Основная информация -->
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Partneri.naimenovanie_company}" FontWeight="Bold" Margin="0,0,5,0"/>
+                                    <!-- Здесь нужно получить название типа партнера по его ID. Это сложно сделать прямо в привязке. -->
+                                    <!-- Лучше добавить свойство-прослойку в код или подгружать данные с Include. -->
+                                    <!-- Временно выведем ID типа -->
+                                    <TextBlock Text="{Binding Partneri.Id_tip_partnera}" Foreground="Gray"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Partneri.yuridichestkiy_adres}" TextWrapping="Wrap" MaxWidth="300"/>
+                                <TextBlock Text="{Binding Partneri.fio_directora}"/>
+                            </StackPanel>
+
+                            <!-- Контакты и рейтинг справа -->
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <TextBlock Text="{Binding Partneri.email}"/>
+                                <TextBlock Text="{Binding Partneri.kontaktnie_dannie}"/>
+                                <TextBlock Text="{Binding Partneri.reyting}" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                <TextBlock Text="Заказано товаров:" FontSize="10" Foreground="Gray"/>
+                                <TextBlock Text="{Binding kolichestvi_productsi}" FontSize="16" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+        <Grid Grid.Row="3" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnAdd" Height="30" Grid.Column="0"  Content="Добавить" Margin="5,5,5,0" Click="btnAdd_Click" VerticalAlignment="Top"  />
+            <Button x:Name="btnUpdate" Height="30"  Grid.Column="1"  Content="Редактировать" Margin="5" Click="btnUpdate_Click" />
+        </Grid>
+    </Grid>
+</Page>

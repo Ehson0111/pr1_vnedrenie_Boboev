@@ -1,0 +1,17 @@
+﻿<Application x:Class="pr1_vnedrenit.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:pr1_vnedrenit"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#BBDCFA"/>
+            <Setter Property="FontFamily" Value="14"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light SemiCondensed"/>
+
+
+        </Style>
+        
+    </Application.Resources>
+</Application>

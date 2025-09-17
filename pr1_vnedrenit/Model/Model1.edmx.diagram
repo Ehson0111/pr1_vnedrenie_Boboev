@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c43630842b3647719be67f5f5a01c9f3" Name="Diagram1">
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Id_tip_partnera" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Istoriya_reytinga_parnterov" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Materiali" Width="1.5" PointX="8" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.materiali_dla_proizvodstva" Width="1.5" PointX="10.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Menedcher" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Partneri" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Postavchiki" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Productsia" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Secha" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Sklad" Width="1.5" PointX="10.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Skladskie_operatsi" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Sotrudniki" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Status_zayavki" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.tip_materiala" Width="1.5" PointX="5.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.tip_productsi" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pr1_vnedrenieModel.Zayavka" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Partneri_Id_tip_partnera" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Istoriya_reytinga_parnterov_Partneri" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_materiali_dla_proizvodstva_Materiali" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Materiali_Postavchiki" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Materiali_tip_materiala" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Sklad_Materiali" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_materiali_dla_proizvodstva_Productsia" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Menedcher_Sotrudniki" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Zayavka_Menedcher" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Zayavka_Partneri" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Productsia_Secha" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Productsia_tip_productsi" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Zayavka_Productsia" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Sklad_Skladskie_operatsi" ManuallyRouted="false" />
+        <AssociationConnector Association="pr1_vnedrenieModel.FK_Zayavka_Status_zayavki" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
